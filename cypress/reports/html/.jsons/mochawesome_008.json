@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-01-05T11:31:58.032Z",
+    "end": "2025-01-05T11:32:18.427Z",
+    "duration": 20395,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "557fa38a-f9c3-4365-b53b-f4dc5949da96",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ebay.js",
+      "file": "cypress\\e2e\\ebay.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5803b199-287f-4e28-a795-31e7c7d87a7b",
+          "title": "Ebay Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify Add to cart count",
+              "fullTitle": "Ebay Test Verify Add to cart count",
+              "timedOut": null,
+              "duration": 16556,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"example.json\").then((data) => {\n  const bookName = data.bookName;\n  cy.visit(Cypress.env(\"baseUrl\"));\n  cy.get(\"div[id='gh-ac-box2']\").click().type(bookName);\n  cy.get(\"input[id='gh-btn']\").click();\n  cy.get(\".srp-results\").find(\"li[class*='s-item']\").eq(0).find(\"a\").invoke(\"removeAttr\", \"target\").find(\".s-item__title\").click();\n  cy.contains(\"[id='atcBtn_btn_1']\").click();\n  cy.get(\"#gh-cart-n\").contains(1);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 6000ms: Expected to find content: '[id='atcBtn_btn_1']' but never did.",
+                "estack": "AssertionError: Timed out retrying after 6000ms: Expected to find content: '[id='atcBtn_btn_1']' but never did.\n    at Context.eval (https://www.ebay.com/__cypress/tests?p=cypress\\e2e\\ebay.js:11:12)",
+                "diff": null
+              },
+              "uuid": "246ba6ef-3a7f-4489-9688-42783d9b589f",
+              "parentUUID": "5803b199-287f-4e28-a795-31e7c7d87a7b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "246ba6ef-3a7f-4489-9688-42783d9b589f"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 16556,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
